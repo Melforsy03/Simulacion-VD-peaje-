@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1744381374.62798 "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" "Informe_Simulacion_Peaje_FINAL (1).pdf" "Informe_Simulacion_Peaje_FINAL (1)" 1744381376.06028 0
+["pdflatex"] 1744381829.83456 "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" "Informe_Simulacion_Peaje_FINAL (1).pdf" "Informe_Simulacion_Peaje_FINAL (1)" 1744381831.26252 0
   "C:/Users/Melani Forsythe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1736728980 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Melani Forsythe/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1709783375 24229842 6985d4661765c353af998956f4c256bd ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -19,6 +19,7 @@
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt12.tfm" 1136765053 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1247596667 36741 0ee9e374ec3e30da87cdfb0ea3575226 ""
+  "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1247596666 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
@@ -57,10 +58,10 @@
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.cfg" 1679057124 1829 d8258b7d94f5f955e70c623e525f9f45 ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.sty" 1679057124 80947 75a96bb4c9f40ae31d54a01d924df2ff ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstmisc.sty" 1679057124 77021 d05e9115c67855816136d82929db8892 ""
-  "Informe_Simulacion_Peaje_FINAL (1).aux" 1744381375 1628 73c216d24c6ee1a9390f9c7a3d0b7cf4 "pdflatex"
-  "Informe_Simulacion_Peaje_FINAL (1).tex" 1744381373 13083 b4d138c29257aec81ef73a44cae8e457 ""
+  "Informe_Simulacion_Peaje_FINAL (1).aux" 1744381831 2059 022b7e57cbea1a3adc01092dfdf731c2 "pdflatex"
+  "Informe_Simulacion_Peaje_FINAL (1).tex" 1744381827 15808 6db7ef7609c4ca74314f5fc1d2fb6fcc ""
   "box_ocupacion.png" 1744379297 59920 d9d830170b4112909f45943aa93ae3d8 ""
-  "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" 1744381373 13083 b4d138c29257aec81ef73a44cae8e457 ""
+  "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" 1744381827 15808 6db7ef7609c4ca74314f5fc1d2fb6fcc ""
   "hist_espera.png" 1744379294 65866 c49decf9f3f3b11afa3a1120f92f0fe3 ""
   "line_espera.png" 1744379575 110174 0df2b426c8cfbbcb66c2b1ef43521c1c ""
   "scatter_ocupacion.png" 1744379577 125219 66a2b87fd8a9ff25c359db473e7633c1 ""

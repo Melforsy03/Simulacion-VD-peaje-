@@ -185,21 +185,52 @@ A continuación se muestra una muestra de los resultados obtenidos (30 primeras 
     \end{tabular}
 
 
-\section{Modelo Matemático}
-El sistema puede modelarse como una cola $M/M/c$, donde:
-\begin{itemize}
-    \item Las llegadas siguen una distribución exponencial con parámetro $\lambda$.
-    \item Los tiempos de servicio también son exponenciales con parámetro $\mu$.
-    \item $c$ representa el número de servidores (cabinas).
-\end{itemize}
+    \section{Modelo Matemático}
 
-Se asumieron los siguientes supuestos:
-\begin{itemize}
-    \item Capacidad de cola infinita.
-    \item Disciplina FIFO.
-    \item Independencia entre llegadas y servicios.
-\end{itemize}
-
+    \subsection{Descripción del modelo como modelos probabilísticos}
+    
+    El sistema de peaje se modela como una línea de espera \( M/M/c \), donde:
+    
+    \begin{itemize}
+        \item \( M \): Las llegadas de vehículos siguen un proceso de Poisson con tasa \( \lambda \), indicando que los tiempos entre llegadas son independientes y exponencialmente distribuidos.
+        \item \( M \): Los tiempos de servicio en cada cabina son independientes y siguen una distribución exponencial con tasa \( \mu \).
+        \item \( c \): Existen \( c \) cabinas de peaje operando en paralelo, actuando como servidores idénticos.
+    \end{itemize}
+    
+    Bajo este modelo, las métricas de interés se calculan mediante las siguientes fórmulas:
+    
+    \begin{itemize}
+        \item **Factor de utilización por servidor**: \( \rho = \frac{\lambda}{c \cdot \mu} \)
+        \item **Número promedio de vehículos en el sistema**: \( L = \frac{\lambda W}{c} \)
+        \item **Tiempo promedio de espera en la cola**: \( W_q = \frac{L_q}{\lambda} \)
+    \end{itemize}
+    
+    \subsection{Supuestos y restricciones}
+    
+    Para la validez del modelo \( M/M/c \), se asumen las siguientes condiciones:
+    
+    \begin{itemize}
+        \item **Llegadas y servicios independientes**: Los tiempos entre llegadas y los tiempos de servicio son independientes entre sí.
+        \item **Distribuciones exponenciales**: Los tiempos entre llegadas y los tiempos de servicio siguen distribuciones exponenciales.
+        \item **Disciplina de servicio FIFO**: Los vehículos son atendidos en el orden de llegada.
+        \item **Capacidad infinita de la cola**: No hay límite en el número de vehículos que pueden esperar en la cola.
+        \item **Estado estacionario**: El sistema alcanza un equilibrio donde las métricas de rendimiento se estabilizan.
+    \end{itemize}
+    
+    Es importante destacar que, en la práctica, algunas de estas suposiciones pueden no cumplirse estrictamente, lo que podría afectar la precisión del modelo.
+    
+    \subsection{Comparación de los resultados obtenidos con los resultados experimentales}
+    
+    Los resultados obtenidos mediante la simulación se compararon con las métricas teóricas del modelo \( M/M/c \). Se observó que:
+    
+    \begin{itemize}
+        \item **Consistencia en tiempos de espera**: Los tiempos promedio de espera obtenidos en la simulación están alineados con los valores teóricos, validando la precisión del modelo en condiciones controladas.
+        \item **Variabilidad en la ocupación de las cabinas**: Aunque el modelo teórico asume una ocupación promedio constante, la simulación mostró fluctuaciones debido a la naturaleza estocástica del sistema.
+        \item **Impacto del número de cabinas**: Tanto en el modelo teórico como en la simulación, se confirmó que aumentar el número de cabinas reduce el tiempo de espera y la probabilidad de formación de colas largas.
+    \end{itemize}
+    
+    Estas comparaciones indican que el modelo \( M/M/c \) es adecuado para representar el sistema de peaje bajo los supuestos establecidos, aunque es esencial considerar las limitaciones y posibles desviaciones en escenarios reales.
+    
 La tasa de utilización del sistema se estima como $\rho = \frac{\lambda}{c \cdot \mu}$. Las simulaciones confirman que un aumento en el número de cabinas disminuye el tiempo de espera y la ocupación individual, validando el modelo teórico.
 
 \section{Conclusiones}
