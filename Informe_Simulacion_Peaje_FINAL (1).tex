@@ -1,0 +1,209 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{listings}
+\geometry{margin=2.5cm}
+
+\title{Simulación de Eventos Discretos: Sistema de Peaje}
+\author{Melani Forsythe Matos}
+\date{Abril 2025}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Introducción}
+
+\subsection*{Breve descripción del proyecto}
+Este proyecto tiene como objetivo desarrollar una simulación basada en eventos discretos de un sistema de peaje en el cual los vehículos llegan de manera aleatoria y son atendidos por varias cabinas disponibles. La simulación busca modelar el flujo vehicular y analizar el rendimiento del sistema bajo diferentes configuraciones operativas.
+
+\subsection*{Objetivos y metas}
+\begin{itemize}
+    \item Evaluar el impacto de los parámetros del sistema (tasa de llegada, tasa de servicio, número de cabinas, duración de simulación) en métricas clave como el tiempo promedio de espera, la cantidad de autos atendidos y la ocupación de las cabinas.
+    \item Validar la coherencia del modelo simulado con los principios teóricos de los sistemas de colas.
+    \item Generar visualizaciones estadísticas que faciliten la interpretación de los resultados.
+    \item Brindar una herramienta sencilla que permita analizar decisiones operativas en sistemas de atención múltiple.
+\end{itemize}
+
+\subsection*{Sistema específico simulado y variables de interés}
+El sistema simulado es una estación de peaje con varias cabinas de atención. Las llegadas de vehículos siguen una distribución exponencial (Poisson) y el servicio también es exponencial, lo que define un modelo $M/M/c$. Las variables analizadas fueron:
+
+\begin{itemize}
+    \item Tiempo promedio de espera de los vehículos.
+    \item Total de vehículos atendidos en cada simulación.
+    \item Porcentaje promedio de ocupación de las cabinas.
+\end{itemize}
+
+\subsection*{Variables que describen el problema}
+\begin{itemize}
+    \item $\lambda$: tasa de llegada de vehículos.
+    \item $\mu$: tasa de servicio de las cabinas.
+    \item $c$: número de cabinas (servidores).
+    \item $T$: duración total de la simulación.
+    \item $W$: tiempo promedio de espera en cola.
+    \item $\rho$: nivel de utilización del sistema.
+\end{itemize}
+
+\section{Detalles de Implementación}
+
+\subsection*{Pasos seguidos para la implementación}
+\begin{enumerate}
+    \item \textbf{Modelado del sistema}: se definieron los eventos de llegada y salida, utilizando una cola de prioridad para ordenar cronológicamente los eventos.
+    \item \textbf{Codificación en Python}:
+        \begin{itemize}
+            \item Se creó una clase \texttt{Evento} y una función \texttt{simular\_peaje(...)} que ejecuta el sistema.
+            \item Se incorporó la variabilidad en las configuraciones simuladas (número de cabinas, tasas, tiempo total).
+            \item Se implementó la generación de múltiples simulaciones por configuración.
+        \end{itemize}
+    \item \textbf{Recolección de datos}:
+        \begin{itemize}
+            \item Se almacenaron métricas claves de cada simulación en un \texttt{DataFrame}.
+            \item Se exportaron los datos en CSV y se usaron para crear gráficas y tablas.
+        \end{itemize}
+\end{enumerate}
+
+\section{Resultados y Experimentos}
+
+\subsection*{Hallazgos de la simulación}
+\begin{itemize}
+    \item Al aumentar el número de cabinas, se reduce el tiempo promedio de espera y también la ocupación individual de cada cabina.
+    \item A tasas de llegada altas y pocas cabinas, el sistema entra en congestión, elevando considerablemente los tiempos de espera.
+    \item Las distribuciones de espera son asimétricas, lo cual es esperable en sistemas de colas reales.
+\end{itemize}
+
+\subsection*{Interpretación de los resultados}
+\begin{itemize}
+    \item El modelo refleja de forma realista la dinámica de un peaje: mayor capacidad reduce los cuellos de botella.
+    \item El equilibrio entre $\lambda$, $\mu$ y $c$ es crucial para evitar sobrecarga del sistema.
+    \item La ocupación y el rendimiento del sistema pueden variar significativamente con pequeños cambios en los parámetros.
+\end{itemize}
+
+\subsection*{Hipótesis extraídas de los resultados}
+\begin{itemize}
+    \item \textbf{H1}: Un mayor número de cabinas reduce significativamente el tiempo de espera.
+    \item \textbf{H2}: A igualdad de cabinas, un mayor tiempo total de simulación estabiliza los resultados.
+    \item \textbf{H3}: La ocupación promedio es inversamente proporcional al número de cabinas disponibles.
+\end{itemize}
+
+\subsection*{Experimentos realizados para validar las hipótesis}
+\begin{itemize}
+    \item Se probaron combinaciones con 2, 3 y 4 cabinas.
+    \item Se variaron tasas de llegada (1/4 y 1/5) y servicio (1/3 y 1/4).
+    \item Cada configuración fue simulada 10 veces para asegurar consistencia estadística.
+\end{itemize}
+
+\subsection*{Necesidad de realizar análisis estadístico}
+Dado que los eventos de llegada y servicio son aleatorios, cada simulación produce resultados diferentes. Por lo tanto:
+\begin{itemize}
+    \item Se realizó un análisis estadístico sobre los resultados con medias, desviaciones estándar, mínimos y máximos.
+    \item Se graficaron las distribuciones para facilitar la visualización del comportamiento agregado.
+\end{itemize}
+
+\subsection*{Análisis de parada de la simulación}
+Para garantizar resultados estables, se utilizaron tiempos de simulación de 300 y 500 unidades. Se observó que:
+\begin{itemize}
+    \item Con duraciones menores, las colas aún no alcanzaban estado estacionario.
+    \item Para tiempos mayores o iguales a 500, los indicadores clave mostraban menor variabilidad, sugiriendo una buena elección del horizonte de simulación.
+\end{itemize}
+
+Este proyecto tiene como objetivo desarrollar una simulación de eventos discretos aplicada a un sistema de peaje, donde múltiples vehículos arriban de forma aleatoria y son atendidos por un conjunto de cabinas disponibles. Se busca analizar el comportamiento del sistema bajo distintas configuraciones, evaluando variables como el tiempo promedio de espera, la cantidad de autos atendidos y la ocupación de las cabinas.
+
+\section{Detalles de Implementación}
+La simulación fue implementada en Python, utilizando una estructura basada en eventos (llegadas y salidas). Se simularon múltiples configuraciones variando la tasa de llegada, tasa de servicio, tiempo total de simulación y número de cabinas. Para cada combinación se realizaron 10 ejecuciones.
+
+\section{Resultados y Experimentos}
+\subsection*{Gráficos}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{hist_espera.png}
+\caption{Distribución del tiempo promedio de espera en distintas configuraciones.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{box_ocupacion.png}
+\caption{Boxplot de la ocupación promedio de las cabinas en función de su cantidad.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{line_espera.png}
+\caption{Tiempo promedio de espera según el número de cabinas.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{scatter_ocupacion.png}
+\caption{Relación entre ocupación promedio y tiempo de espera.}
+\end{figure}
+
+\subsection*{Tabla de Resultados}
+A continuación se muestra una muestra de los resultados obtenidos (30 primeras filas):
+
+\begin{tabular}{rrrrrrr}
+    \toprule
+     Cabinas &  Tiempo Total &  Tasa Llegada &  Tasa Servicio &  Tiempo promedio espera &  Autos atendidos &  Ocupación promedio (\%) \\
+    \midrule
+           2 &           300 &          0.25 &           0.33 &                    0.55 &               75 &                   41.34 \\
+           2 &           300 &          0.25 &           0.33 &                    0.81 &               78 &                   41.16 \\
+           2 &           300 &          0.25 &           0.33 &                    1.11 &               83 &                   49.03 \\
+           2 &           300 &          0.25 &           0.33 &                    0.39 &               73 &                   33.60 \\
+           2 &           300 &          0.25 &           0.33 &                    0.30 &               75 &                   35.96 \\
+           2 &           300 &          0.25 &           0.33 &                    0.35 &               77 &                   41.11 \\
+           2 &           300 &          0.25 &           0.33 &                    0.39 &               75 &                   35.52 \\
+           2 &           300 &          0.25 &           0.33 &                    0.63 &               82 &                   41.54 \\
+           2 &           300 &          0.25 &           0.33 &                    0.14 &               72 &                   32.97 \\
+           2 &           300 &          0.25 &           0.33 &                    0.73 &               74 &                   36.49 \\
+           2 &           300 &          0.25 &           0.25 &                    2.05 &               60 &                   42.83 \\
+           2 &           300 &          0.25 &           0.25 &                    0.71 &               66 &                   44.80 \\
+           2 &           300 &          0.25 &           0.25 &                    0.95 &               74 &                   39.20 \\
+           2 &           300 &          0.25 &           0.25 &                    2.25 &               78 &                   50.45 \\
+           2 &           300 &          0.25 &           0.25 &                    0.97 &               93 &                   54.71 \\
+           2 &           300 &          0.25 &           0.25 &                    0.77 &               67 &                   42.17 \\
+           2 &           300 &          0.25 &           0.25 &                    1.61 &               80 &                   61.24 \\
+           2 &           300 &          0.25 &           0.25 &                    1.15 &               79 &                   54.11 \\
+           2 &           300 &          0.25 &           0.25 &                    0.66 &               69 &                   48.21 \\
+           2 &           300 &          0.25 &           0.25 &                    1.38 &               69 &                   48.11 \\
+           2 &           300 &          0.20 &           0.33 &                    1.04 &               74 &                   40.95 \\
+           2 &           300 &          0.20 &           0.33 &                    0.00 &               55 &                   27.22 \\
+           2 &           300 &          0.20 &           0.33 &                    0.12 &               58 &                   28.37 \\
+           2 &           300 &          0.20 &           0.33 &                    0.26 &               72 &                   37.95 \\
+           2 &           300 &          0.20 &           0.33 &                    0.07 &               53 &                   29.67 \\
+           2 &           300 &          0.20 &           0.33 &                    0.01 &               73 &                   32.61 \\
+           2 &           300 &          0.20 &           0.33 &                    0.05 &               55 &                   21.81 \\
+           2 &           300 &          0.20 &           0.33 &                    0.02 &               50 &                   23.07 \\
+           2 &           300 &          0.20 &           0.33 &                    0.10 &               65 &                   28.70 \\
+           2 &           300 &          0.20 &           0.33 &                    0.32 &               60 &                   24.83 \\
+    \bottomrule
+    \end{tabular}
+
+
+\section{Modelo Matemático}
+El sistema puede modelarse como una cola $M/M/c$, donde:
+\begin{itemize}
+    \item Las llegadas siguen una distribución exponencial con parámetro $\lambda$.
+    \item Los tiempos de servicio también son exponenciales con parámetro $\mu$.
+    \item $c$ representa el número de servidores (cabinas).
+\end{itemize}
+
+Se asumieron los siguientes supuestos:
+\begin{itemize}
+    \item Capacidad de cola infinita.
+    \item Disciplina FIFO.
+    \item Independencia entre llegadas y servicios.
+\end{itemize}
+
+La tasa de utilización del sistema se estima como $\rho = \frac{\lambda}{c \cdot \mu}$. Las simulaciones confirman que un aumento en el número de cabinas disminuye el tiempo de espera y la ocupación individual, validando el modelo teórico.
+
+\section{Conclusiones}
+La simulación permitió visualizar claramente cómo influyen los parámetros del sistema en su rendimiento. Se comprobó que un mayor número de cabinas reduce significativamente el tiempo promedio de espera. Además, se observó una relación directa entre la tasa de llegada y el nivel de congestión del sistema. Esta herramienta resulta útil para la toma de decisiones en la planificación de infraestructuras viales.
+
+
+\end{document}

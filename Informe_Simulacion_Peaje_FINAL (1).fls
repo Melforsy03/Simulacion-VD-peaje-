@@ -1,13 +1,15 @@
 PWD c:\Users\Melani Forsythe\Desktop\Simulacion Variables Discretas
 INPUT C:\Users\Melani Forsythe\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Melani Forsythe\Desktop\Simulacion Variables Discretas\InformePeaje.tex
-OUTPUT InformePeaje.log
+INPUT c:\Users\Melani Forsythe\Desktop\Simulacion Variables Discretas\Informe_Simulacion_Peaje_FINAL (1).tex
+OUTPUT Informe_Simulacion_Peaje_FINAL (1).log
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\size12.clo
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\size12.clo
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\size12.clo
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\babel\babel.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\babel\txtbabel.def
@@ -21,8 +23,6 @@ INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\babel\l
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-spanish.tex
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\babel\locale\es\babel-es.ini
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\graphics\keyval.sty
@@ -37,6 +37,8 @@ INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\graphics-
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsopn.sty
@@ -47,6 +49,8 @@ INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\a
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsbsy.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsbsy.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.sty
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\iftex\ifvtex.sty
@@ -56,12 +60,20 @@ INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\generic\iftex\i
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.cfg
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\InformePeaje.aux
-INPUT .\InformePeaje.aux
-INPUT InformePeaje.aux
-OUTPUT InformePeaje.aux
+INPUT .\Informe_Simulacion_Peaje_FINAL (1).aux
+INPUT .\Informe_Simulacion_Peaje_FINAL (1).aux
+INPUT Informe_Simulacion_Peaje_FINAL (1).aux
+OUTPUT Informe_Simulacion_Peaje_FINAL (1).aux
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -78,6 +90,7 @@ INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
@@ -89,31 +102,50 @@ INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
-OUTPUT InformePeaje.pdf
+OUTPUT Informe_Simulacion_Peaje_FINAL (1).pdf
 INPUT C:\Users\Melani Forsythe\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT InformePeaje.aux
-INPUT C:\Users\Melani Forsythe\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
-INPUT C:\Users\Melani Forsythe\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
+INPUT .\hist_espera.png
+INPUT .\hist_espera.png
+INPUT .\hist_espera.png
+INPUT .\hist_espera.png
+INPUT .\hist_espera.png
+INPUT .\hist_espera.png
+INPUT .\hist_espera.png
+INPUT .\box_ocupacion.png
+INPUT .\box_ocupacion.png
+INPUT .\box_ocupacion.png
+INPUT .\box_ocupacion.png
+INPUT .\box_ocupacion.png
+INPUT .\box_ocupacion.png
+INPUT .\box_ocupacion.png
+INPUT .\line_espera.png
+INPUT .\line_espera.png
+INPUT .\line_espera.png
+INPUT .\line_espera.png
+INPUT .\line_espera.png
+INPUT .\line_espera.png
+INPUT .\line_espera.png
+INPUT .\scatter_ocupacion.png
+INPUT .\scatter_ocupacion.png
+INPUT .\scatter_ocupacion.png
+INPUT .\scatter_ocupacion.png
+INPUT .\scatter_ocupacion.png
+INPUT .\scatter_ocupacion.png
+INPUT .\scatter_ocupacion.png
+INPUT Informe_Simulacion_Peaje_FINAL (1).aux
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
+INPUT C:\Users\Melani Forsythe\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
