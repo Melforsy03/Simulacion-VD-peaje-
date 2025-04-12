@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1744381829.83456 "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" "Informe_Simulacion_Peaje_FINAL (1).pdf" "Informe_Simulacion_Peaje_FINAL (1)" 1744381831.26252 0
+["pdflatex"] 1744465201.51344 "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" "Informe_Simulacion_Peaje_FINAL (1).pdf" "Informe_Simulacion_Peaje_FINAL (1)" 1744465204.42581 0
   "C:/Users/Melani Forsythe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1736728980 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Melani Forsythe/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1709783375 24229842 6985d4661765c353af998956f4c256bd ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -58,10 +58,10 @@
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.cfg" 1679057124 1829 d8258b7d94f5f955e70c623e525f9f45 ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.sty" 1679057124 80947 75a96bb4c9f40ae31d54a01d924df2ff ""
   "C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstmisc.sty" 1679057124 77021 d05e9115c67855816136d82929db8892 ""
-  "Informe_Simulacion_Peaje_FINAL (1).aux" 1744381831 2059 022b7e57cbea1a3adc01092dfdf731c2 "pdflatex"
-  "Informe_Simulacion_Peaje_FINAL (1).tex" 1744381827 15808 6db7ef7609c4ca74314f5fc1d2fb6fcc ""
+  "Informe_Simulacion_Peaje_FINAL (1).aux" 1744465204 1944 6f7a6a9675fbef3acfed9b95bbe28a58 "pdflatex"
+  "Informe_Simulacion_Peaje_FINAL (1).tex" 1744465196 15045 c846563bc89481159c27ccf70535aac6 ""
   "box_ocupacion.png" 1744379297 59920 d9d830170b4112909f45943aa93ae3d8 ""
-  "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" 1744381827 15808 6db7ef7609c4ca74314f5fc1d2fb6fcc ""
+  "c:/Users/Melani Forsythe/Desktop/Simulacion Variables Discretas/Informe_Simulacion_Peaje_FINAL (1).tex" 1744465196 15045 c846563bc89481159c27ccf70535aac6 ""
   "hist_espera.png" 1744379294 65866 c49decf9f3f3b11afa3a1120f92f0fe3 ""
   "line_espera.png" 1744379575 110174 0df2b426c8cfbbcb66c2b1ef43521c1c ""
   "scatter_ocupacion.png" 1744379577 125219 66a2b87fd8a9ff25c359db473e7633c1 ""

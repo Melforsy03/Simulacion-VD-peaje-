@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.6)  11 APR 2025 10:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.6)  12 APR 2025 09:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -283,34 +283,35 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 \c@lstlisting=\count299
 [1
 
-{C:/Users/Melani Forsythe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3]
-<hist_espera.png, id=16, 578.16pt x 361.35pt>
+{C:/Users/Melani Forsythe/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
+<hist_espera.png, id=13, 578.16pt x 361.35pt>
 File: hist_espera.png Graphic file (type png)
 <use hist_espera.png>
-Package pdftex.def Info: hist_espera.png  used on input line 125.
+Package pdftex.def Info: hist_espera.png  used on input line 120.
 (pdftex.def)             Requested size: 377.62642pt x 236.01607pt.
+ [3]
 <box_ocupacion.png, id=18, 578.16pt x 361.35pt>
 File: box_ocupacion.png Graphic file (type png)
 <use box_ocupacion.png>
-Package pdftex.def Info: box_ocupacion.png  used on input line 131.
+Package pdftex.def Info: box_ocupacion.png  used on input line 126.
 (pdftex.def)             Requested size: 377.62642pt x 236.01607pt.
- [4 <./hist_espera.png>]
-<line_espera.png, id=23, 578.16pt x 361.35pt>
+<line_espera.png, id=19, 578.16pt x 361.35pt>
 File: line_espera.png Graphic file (type png)
 <use line_espera.png>
-Package pdftex.def Info: line_espera.png  used on input line 137.
+Package pdftex.def Info: line_espera.png  used on input line 132.
 (pdftex.def)             Requested size: 377.62642pt x 236.01607pt.
-<scatter_ocupacion.png, id=24, 578.16pt x 361.35pt>
+ [4 <./hist_espera.png> <./box_ocupacion.png>]
+<scatter_ocupacion.png, id=25, 578.16pt x 361.35pt>
 File: scatter_ocupacion.png Graphic file (type png)
 <use scatter_ocupacion.png>
-Package pdftex.def Info: scatter_ocupacion.png  used on input line 143.
+Package pdftex.def Info: scatter_ocupacion.png  used on input line 138.
 (pdftex.def)             Requested size: 377.62642pt x 236.01607pt.
- [5 <./box_ocupacion.png> <./line_espera.png>]
-Overfull \hbox (218.33063pt too wide) in paragraph at lines 150--186
+
+Overfull \hbox (218.33063pt too wide) in paragraph at lines 145--181
 [][] 
  []
 
-[6 <./scatter_ocupacion.png>] [7] [8] [9] (Informe_Simulacion_Peaje_FINAL (1).aux
+[5 <./line_espera.png> <./scatter_ocupacion.png>] [6] [7] [8] (Informe_Simulacion_Peaje_FINAL (1).aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -328,9 +329,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,7n,65p,549b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Melani Forsythe/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "Informe_Simulacion_Peaje_FINAL (1).pdf" (9 pages, 392458 bytes).
+Output written on "Informe_Simulacion_Peaje_FINAL (1).pdf" (8 pages, 391145 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
