@@ -1,20 +1,44 @@
 
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+
+\usepackage{sectsty}
+\sectionfont{\color{blue!60!black}}
+\subsectionfont{\color{blue!80!black}}
+
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{blue!80!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{blue!50!black}}{\thesubsection}{1em}{}
+
+\usepackage{hyperref}
+
+
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{geometry}
-\usepackage{listings}
 \geometry{margin=2.5cm}
+\usepackage{listings}
+
 
 \title{Simulación de Eventos Discretos: Sistema de Peaje}
 \author{Melani Forsythe Matos}
 \date{Abril 2025}
 
 \begin{document}
+
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+\clearpage
 
 \maketitle
 
@@ -53,21 +77,71 @@ El sistema simulado es una estación de peaje con varias cabinas de atención. L
 
 \section{Detalles de Implementación}
 
-\subsection*{Pasos seguidos para la implementación}
-\begin{enumerate}
-    \item \textbf{Modelado del sistema}: se definieron los eventos de llegada y salida, utilizando una cola de prioridad para ordenar cronológicamente los eventos.
-    \item \textbf{Codificación en Python}:
-        \begin{itemize}
-            \item Se creó una clase \texttt{Evento} y una función \texttt{simular\_peaje(...)} que ejecuta el sistema.
-            \item Se incorporó la variabilidad en las configuraciones simuladas (número de cabinas, tasas, tiempo total).
-            \item Se implementó la generación de múltiples simulaciones por configuración.
-        \end{itemize}
-    \item \textbf{Recolección de datos}:
-        \begin{itemize}
-            \item Se almacenaron métricas claves de cada simulación en un \texttt{DataFrame}.
-            \item Se exportaron los datos en CSV y se usaron para crear gráficas y tablas.
-        \end{itemize}
-\end{enumerate}
+\subsection*{1. Modelado del sistema}
+
+Para representar el sistema de peaje como una simulación de eventos discretos, se definió una clase \texttt{Evento}, que modela los eventos de llegada y salida de vehículos. Estos eventos se gestionan en una cola de prioridad que garantiza su procesamiento en orden cronológico:
+
+\begin{lstlisting}[language=Python, caption={Definición de la clase Evento}]
+class Evento:
+    def __init__(self, tiempo, tipo, cabina_id=None):
+        self.tiempo = tiempo
+        self.tipo = tipo
+        self.cabina_id = cabina_id
+
+    def __lt__(self, otro):
+        return self.tiempo < otro.tiempo
+\end{lstlisting}
+
+\subsection*{2. Lógica de simulación}
+
+La función \texttt{simular\_peaje(...)} implementa la lógica central. Se inicializa el reloj y se procesan eventos hasta alcanzar el tiempo total de simulación. Cada evento actualiza el estado del sistema:
+
+\begin{lstlisting}[language=Python, caption={Estructura principal de la simulación}]
+def simular_peaje(tasa_llegada, tasa_servicio, tiempo_total, num_cabinas):
+    reloj = 0
+    eventos = []
+    heapq.heappush(eventos, Evento(random.expovariate(tasa_llegada), 'llegada'))
+    cabinas = [None] * num_cabinas
+    cola = []
+    tiempos_espera = []
+    ocupacion_cabinas = [0] * num_cabinas
+    tiempo_anterior = 0
+
+    while eventos:
+        evento = heapq.heappop(eventos)
+        reloj = evento.tiempo
+        ...
+\end{lstlisting}
+
+\subsection*{3. Múltiples ejecuciones y configuración}
+
+Se probaron múltiples combinaciones de parámetros, como número de cabinas, tasa de llegada, tasa de servicio y tiempo de simulación. El siguiente fragmento muestra cómo se itera sobre estas combinaciones:
+
+\begin{lstlisting}[language=Python, caption={Ejecución de múltiples simulaciones}]
+for cabinas in cabinas_list:
+    for tiempo_total in tiempos_totales:
+        for tasa_llegada in tasas_llegada:
+            for tasa_servicio in tasas_servicio:
+                for _ in range(num_simulaciones):
+                    espera, atendidos, ocupacion = simular_peaje(
+                        tasa_llegada, tasa_servicio, tiempo_total, cabinas)
+                    ...
+\end{lstlisting}
+
+\subsection*{4. Generación de gráficos y análisis}
+
+Los resultados se almacenaron en un \texttt{DataFrame} y se generaron gráficos estadísticos para visualizar el comportamiento del sistema:
+
+\begin{lstlisting}[language=Python, caption={Ejemplo de generación de gráfico}]
+plt.figure(figsize=(8, 5))
+sns.histplot(df_resultados["Tiempo promedio espera"], kde=True, bins=20)
+plt.title("Distribucin del Tiempo Promedio de Espera")
+plt.xlabel("Tiempo promedio de espera (s)")
+plt.ylabel("Frecuencia")
+plt.tight_layout()
+plt.savefig("hist_espera.png")
+\end{lstlisting}
+
 
 \section{Resultados y Experimentos}
 
@@ -112,79 +186,123 @@ Para garantizar resultados estables, se utilizaron tiempos de simulación de 300
     \item Con duraciones menores, las colas aún no alcanzaban estado estacionario.
     \item Para tiempos mayores o iguales a 500, los indicadores clave mostraban menor variabilidad, sugiriendo una buena elección del horizonte de simulación.
 \end{itemize}
+\newpage
 
 \section{Resultados y Experimentos}
 \subsection*{Gráficos}
 \begin{figure}[H]
-\centering
+\centering\vspace{-0.5em}
 \includegraphics[width=0.8\textwidth]{hist_espera.png}
 \caption{Distribución del tiempo promedio de espera en distintas configuraciones.}
+\small La mayoría de las simulaciones muestran tiempos de espera inferiores a 1 segundo, indicando eficiencia del sistema. Sin embargo, se observa una cola hacia la derecha, reflejando que ciertas configuraciones (por ejemplo, con pocas cabinas) pueden generar demoras mayores.
+
 \end{figure}
 
 \begin{figure}[H]
-\centering
+\centering\vspace{-0.5em}
 \includegraphics[width=0.8\textwidth]{box_ocupacion.png}
-\caption{Boxplot de la ocupación promedio de las cabinas en función de su cantidad.}
+\caption{Boxplot de la ocupación promedio de las cabinas en función del número total.}
+\small A medida que aumenta el número de cabinas, la ocupación promedio por cabina disminuye notablemente. Con 2 cabinas, la carga es alta y variable; con 3 o 4, la carga se distribuye mejor y es más estable, lo cual mejora la experiencia del usuario.
 \end{figure}
 
-\begin{figure}[H]
-\centering
+\begin{figure}[H]c
+\centering\vspace{-0.5em}
 \includegraphics[width=0.8\textwidth]{line_espera.png}
 \caption{Tiempo promedio de espera según el número de cabinas.}
+\small Existe una relación inversa entre el número de cabinas y el tiempo de espera. El mayor beneficio se obtiene al pasar de 2 a 3 cabinas; a partir de ahí, los beneficios adicionales son menores, indicando rendimientos decrecientes.
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{scatter_ocupacion.png}
+\centering\vspace{2.0em}
+\includegraphics[width=1.0\textwidth]{scatter_ocupacion.png}
 \caption{Relación entre ocupación promedio y tiempo de espera.}
+\small Se observa una fuerte correlación positiva: cuando la ocupación es alta, también lo es el tiempo de espera. Las simulaciones con más cabinas tienden a situarse en la zona inferior izquierda (baja ocupación y baja espera), lo que indica un mejor desempeño del sistema.
+
 \end{figure}
+
+\newpage
 
 \subsection*{Tabla de Resultados}
 A continuación se muestra una muestra de los resultados obtenidos (30 primeras filas):
 
-\begin{tabular}{rrrrrrr}
+\begin{table}[H]
+    \small
+    \setlength{\tabcolsep}{3pt} % reduce espacio entre columnas
+    \renewcommand{\arraystretch}{1.2} % ajusta altura de filas
+    \begin{tabularx}{\textwidth}{|c|c|c|c|c|c|c|}
     \toprule
-     Cabinas &  Tiempo Total &  Tasa Llegada &  Tasa Servicio &  Tiempo promedio espera &  Autos atendidos &  Ocupación promedio (\%) \\
+    Cabinas & T Total & Tasa Llegada & Tasa Servicio & T. espera & Autos atendidos & Ocupación (\%) \\
     \midrule
-           2 &           300 &          0.25 &           0.33 &                    0.55 &               75 &                   41.34 \\
-           2 &           300 &          0.25 &           0.33 &                    0.81 &               78 &                   41.16 \\
-           2 &           300 &          0.25 &           0.33 &                    1.11 &               83 &                   49.03 \\
-           2 &           300 &          0.25 &           0.33 &                    0.39 &               73 &                   33.60 \\
-           2 &           300 &          0.25 &           0.33 &                    0.30 &               75 &                   35.96 \\
-           2 &           300 &          0.25 &           0.33 &                    0.35 &               77 &                   41.11 \\
-           2 &           300 &          0.25 &           0.33 &                    0.39 &               75 &                   35.52 \\
-           2 &           300 &          0.25 &           0.33 &                    0.63 &               82 &                   41.54 \\
-           2 &           300 &          0.25 &           0.33 &                    0.14 &               72 &                   32.97 \\
-           2 &           300 &          0.25 &           0.33 &                    0.73 &               74 &                   36.49 \\
-           2 &           300 &          0.25 &           0.25 &                    2.05 &               60 &                   42.83 \\
-           2 &           300 &          0.25 &           0.25 &                    0.71 &               66 &                   44.80 \\
-           2 &           300 &          0.25 &           0.25 &                    0.95 &               74 &                   39.20 \\
-           2 &           300 &          0.25 &           0.25 &                    2.25 &               78 &                   50.45 \\
-           2 &           300 &          0.25 &           0.25 &                    0.97 &               93 &                   54.71 \\
-           2 &           300 &          0.25 &           0.25 &                    0.77 &               67 &                   42.17 \\
-           2 &           300 &          0.25 &           0.25 &                    1.61 &               80 &                   61.24 \\
-           2 &           300 &          0.25 &           0.25 &                    1.15 &               79 &                   54.11 \\
-           2 &           300 &          0.25 &           0.25 &                    0.66 &               69 &                   48.21 \\
-           2 &           300 &          0.25 &           0.25 &                    1.38 &               69 &                   48.11 \\
-           2 &           300 &          0.20 &           0.33 &                    1.04 &               74 &                   40.95 \\
-           2 &           300 &          0.20 &           0.33 &                    0.00 &               55 &                   27.22 \\
-           2 &           300 &          0.20 &           0.33 &                    0.12 &               58 &                   28.37 \\
-           2 &           300 &          0.20 &           0.33 &                    0.26 &               72 &                   37.95 \\
-           2 &           300 &          0.20 &           0.33 &                    0.07 &               53 &                   29.67 \\
-           2 &           300 &          0.20 &           0.33 &                    0.01 &               73 &                   32.61 \\
-           2 &           300 &          0.20 &           0.33 &                    0.05 &               55 &                   21.81 \\
-           2 &           300 &          0.20 &           0.33 &                    0.02 &               50 &                   23.07 \\
-           2 &           300 &          0.20 &           0.33 &                    0.10 &               65 &                   28.70 \\
-           2 &           300 &          0.20 &           0.33 &                    0.32 &               60 &                   24.83 \\
+    2 & 300 & 0.25 & 0.33 & 0.55 & 75 & 41.34 \\
+    2 & 300 & 0.25 & 0.33 & 0.81 & 78 & 41.16 \\
+    2 & 300 & 0.25 & 0.33 & 1.11 & 83 & 49.03 \\
+    2 & 300 & 0.25 & 0.33 & 0.39 & 73 & 33.60 \\
+    2 & 300 & 0.25 & 0.33 & 0.30 & 75 & 35.96 \\
+    2 & 300 & 0.25 & 0.33 & 0.35 & 77 & 41.11 \\
+    2 & 300 & 0.25 & 0.33 & 0.39 & 75 & 35.52 \\
+    2 & 300 & 0.25 & 0.33 & 0.63 & 82 & 41.54 \\
+    2 & 300 & 0.25 & 0.33 & 0.14 & 72 & 32.97 \\
+    2 & 300 & 0.25 & 0.33 & 0.73 & 74 & 36.49 \\
+    2 & 300 & 0.25 & 0.25 & 2.05 & 60 & 42.83 \\
+    2 & 300 & 0.25 & 0.25 & 0.71 & 66 & 44.80 \\
+    2 & 300 & 0.25 & 0.25 & 0.95 & 74 & 39.20 \\
+    2 & 300 & 0.25 & 0.25 & 2.25 & 78 & 50.45 \\
+    2 & 300 & 0.25 & 0.25 & 0.97 & 93 & 54.71 \\
+    2 & 300 & 0.25 & 0.25 & 0.77 & 67 & 42.17 \\
+    2 & 300 & 0.25 & 0.25 & 1.61 & 80 & 61.24 \\
+    2 & 300 & 0.25 & 0.25 & 1.15 & 79 & 54.11 \\
+    2 & 300 & 0.25 & 0.25 & 0.66 & 69 & 48.21 \\
+    2 & 300 & 0.25 & 0.25 & 1.38 & 69 & 48.11 \\
+    2 & 300 & 0.20 & 0.33 & 1.04 & 74 & 40.95 \\
+    2 & 300 & 0.20 & 0.33 & 0.00 & 55 & 27.22 \\
+    2 & 300 & 0.20 & 0.33 & 0.12 & 58 & 28.37 \\
+    2 & 300 & 0.20 & 0.33 & 0.26 & 72 & 37.95 \\
+    2 & 300 & 0.20 & 0.33 & 0.07 & 53 & 29.67 \\
+    2 & 300 & 0.20 & 0.33 & 0.01 & 73 & 32.61 \\
+    2 & 300 & 0.20 & 0.33 & 0.05 & 55 & 21.81 \\
+    2 & 300 & 0.20 & 0.33 & 0.02 & 50 & 23.07 \\
+    2 & 300 & 0.20 & 0.33 & 0.10 & 65 & 28.70 \\
+    2 & 300 & 0.20 & 0.33 & 0.32 & 60 & 24.83 \\
     \bottomrule
-    \end{tabular}
+    \end{tabularx}
+    
+    \end{table}
+    
 
+    \newpage
 
     \section{Modelo Matemático}
 
     \subsection{Descripción del modelo como modelos probabilísticos}
     
-    El sistema de peaje se modela como una línea de espera \( M/M/c \), donde:
+    El sistema de peaje se modela como una línea de espera \( M/M/c \) :
+    \subsection*{Descripción del Modelo $M/M/c$}
+
+El modelo $M/M/c$ es un tipo de modelo de colas ampliamente utilizado para describir sistemas con múltiples servidores que atienden a clientes que llegan de forma aleatoria. Es especialmente útil en contextos donde se desea analizar la eficiencia de los recursos de atención frente a la demanda fluctuante.
+
+\subsubsection*{Características del modelo $M/M/c$}
+\begin{itemize}
+    \item Las llegadas de clientes siguen un proceso de Poisson (distribución exponencial de tiempos entre llegadas).
+    \item Los tiempos de servicio son independientes y distribuidos exponencialmente.
+    \item El sistema cuenta con $c$ servidores idénticos que atienden en paralelo.
+    \item El estado del sistema depende únicamente del número de clientes presentes en cada instante (propiedad de Markov).
+\end{itemize}
+
+\subsubsection*{Usos del modelo $M/M/c$}
+\begin{itemize}
+    \item Se aplica en áreas como negocios, industria, ingeniería y telecomunicaciones.
+    \item Permite estimar la capacidad óptima del sistema para equilibrar costos operativos y calidad del servicio.
+    \item Modela situaciones donde los clientes deben esperar en cola antes de ser atendidos.
+\end{itemize}
+
+\subsubsection*{Interpretación de la notación $M/M/c$}
+\begin{itemize}
+    \item \textbf{M} (Markovian): llegadas con distribución de Poisson.
+    \item \textbf{M} (Markovian): tiempos de servicio con distribución exponencial.
+    \item \textbf{c}: número de servidores paralelos en el sistema.
+\end{itemize}
+
+\subsubsection{Aplicación del modelo descrito en el problema }
     
     \begin{itemize}
         \item \( M \): Las llegadas de vehículos siguen un proceso de Poisson con tasa \( \lambda \), indicando que los tiempos entre llegadas son independientes y exponencialmente distribuidos.
@@ -231,5 +349,16 @@ La tasa de utilización del sistema se estima como $\rho = \frac{\lambda}{c \cdo
 \section{Conclusiones}
 La simulación permitió visualizar claramente cómo influyen los parámetros del sistema en su rendimiento. Se comprobó que un mayor número de cabinas reduce significativamente el tiempo promedio de espera. Además, se observó una relación directa entre la tasa de llegada y el nivel de congestión del sistema. Esta herramienta resulta útil para la toma de decisiones en la planificación de infraestructuras viales.
 
+
+
+\section*{Bibliografía y enlaces relacionados}
+
+\begin{itemize}
+  \item Ross, S. M. (2012). \textit{Simulation}, 5th Edition. Academic Press.
+  \item Banks, J., Carson, J. S., Nelson, B. L., \& Nicol, D. M. (2010). \textit{Discrete-Event System Simulation}, 5th Edition. Pearson.
+  \item \url{https://en.wikipedia.org/wiki/M/M/c_queue}
+  
+
+\end{itemize}
 
 \end{document}
