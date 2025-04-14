@@ -20,12 +20,11 @@
 
 \section*{S1. Introducción}
 
-El presente trabajo forma parte del curso de Simulación de Eventos Discretos y tiene como objetivo desarrollar un modelo de simulación que nos permita representar de manera clara  el funcionamiento de un sistema real bajo condiciones de desconocidas. En este caso, decidí modelar un sistema de peaje en el que múltiples cabinas atienden a los vehículos que llegan de forma aleatoria.
+El presente trabajo forma parte del curso de Simulación de Eventos Discretos y tiene como objetivo desarrollar un modelo de simulación que nos permita representar de manera clara y ordenada el funcionamiento de un sistema real bajo condiciones de incertidumbre. En este caso, decidí modelar un sistema de peaje en el que múltiples cabinas (servidores) atienden a los vehículos que llegan de forma aleatoria, generando así una cola cuando todos los servidores están ocupados.
 
-La idea principal del proyecto es poder aplicar los conceptos vistos en clase, como la generación de eventos, el manejo de colas y servidores paralelos (ejemplo del libro de Ross 7.4 ), así como la recolección de métricas para analizar el comportamiento del sistema. A través de esta simulación, se busca comprender cómo influyen variables como el número de servidores (cabinas), la tasa de llegada de autos ($\lambda$) y la tasa de servicio ($\mu$), en el rendimiento global del sistema.
+Se trata de un sistema con una única cola y múltiples servidores en paralelo. Cada vez que llega un vehículo, si hay una cabina libre, es atendido inmediatamente; si no, el vehículo espera su turno. Este tipo de estructura es común en muchos entornos reales, como bancos, hospitales o estaciones de peaje.
 
-El sistema que se simuló se basa en el modelo clásico $M/M/c$, donde los tiempos entre llegadas y tiempos de servicio se generan a partir de distribuciones exponenciales. Además, se incorporaron múltiples servidores en paralelo para reflejar de forma más realista cómo funcionan los peajes modernos. Este enfoque se basa en el modelo de eventos discretos en paralelo explicado en la bibliografía, como puede verse en el siguiente esquema tomado del libro de Sheldon M. Ross:
-
+La idea principal del proyecto es poder aplicar los conceptos vistos en clase, como la generación de eventos, el manejo de colas y la simulación estocástica, así como la recolección de métricas para analizar el comportamiento del sistema. A través de esta simulación, se busca comprender cómo influyen variables como el número de servidores (cabinas), la tasa de llegada de autos ($\lambda$) y la tasa de servicio ($\mu$), en el rendimiento global del sistema.
 Las variables principales analizadas en esta simulación fueron:
 \begin{itemize}
   \item \textbf{Tiempo promedio de espera}: cuánto tiempo espera un auto antes de ser atendido.
@@ -121,6 +120,8 @@ Guardé los resultados en un archivo CSV para analizarlos, e hice diferentes gra
     
     Este análisis estadístico es esencial para interpretar los datos de forma visual y objetiva, y para confirmar o refutar nuestras hipótesis con evidencia empírica.
     
+    Todos estos métodos estadísticos me ayudaron a validar mis hipótesis, identificar patrones y detectar comportamientos extremos o inesperados. El análisis se centró en tres variables de interés: tiempo promedio de espera, cantidad de autos atendidos y ocupación promedio de los servidores.
+
     \subsection*{Análisis de parada de la simulación}
     
     Para determinar cuándo finalizar la simulación, establecí un tiempo total fijo para cada ejecución: 300 o 500 unidades de tiempo. Esta estrategia me permitió comparar sistemas bajo condiciones controladas. Si bien no se usó una condición de parada adaptativa (como un criterio basado en convergencia de métricas), el número de ejecuciones por configuración y la duración de cada una garantizaron resultados representativos.
@@ -130,14 +131,6 @@ Guardé los resultados en un archivo CSV para analizarlos, e hice diferentes gra
 \subsection*{Descripción del modelo como modelo probabilístico}
 
 Para representar de forma matemática el sistema de peaje con varias cabinas, me basé en el modelo de colas clásico conocido como $M/M/c$. Este modelo forma parte de los sistemas de colas estocásticos y se usa para analizar cómo se comporta un sistema donde los clientes (en este caso, los autos) llegan al azar, esperan si todos los servidores están ocupados, y son atendidos uno por uno.
-
-La notación $M/M/c$ significa lo siguiente:
-
-\begin{itemize}
-  \item \textbf{M (Markovian) en las llegadas}: los tiempos entre llegadas siguen una distribución exponencial. Es decir, los autos llegan al sistema al azar pero de forma continua, con una cierta tasa promedio $\lambda$.
-  \item \textbf{M (Markovian) en los servicios}: los tiempos de atención en cada cabina también siguen una distribución exponencial, con tasa $\mu$. Esto refleja que hay variabilidad en cuánto tarda cada auto en pasar por la cabina.
-  \item \textbf{c}: el número de servidores en paralelo, en este caso, el número de cabinas disponibles.
-\end{itemize}
 
 En este modelo, la probabilidad de que haya $n$ autos en el sistema (ya sea en espera o siendo atendidos) varía con el tiempo, y se pueden usar fórmulas teóricas para calcular métricas como el tiempo promedio de espera, el tamaño promedio de la cola, o la probabilidad de que un auto tenga que esperar.
 
